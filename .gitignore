@@ -2,3 +2,7 @@ venv/
 __pycache__/
 .pytest_cache/
 *.pyc
+
+node_modules/
+dist/
+政府採購法/website/src/data/questions.json
