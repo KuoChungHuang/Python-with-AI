@@ -2,14 +2,15 @@
 
 依 [政府採購法練習網站_開發規格書v1.md](../政府採購法練習網站_開發規格書v1.md) 實作的第一、二階段練習網站：分類練習、隨機測驗、模擬考（倒數計時＋成績）、錯題本（localStorage）。
 
-## 題庫資料（未包含在本 repo）
+## 題庫資料來源
 
-`src/data/questions.json` 未納入版本控制，因為它是由題庫 PDF 解析而來，內容授權來源未確認（見規格書第 11 節風險清單），不公開發布題目全文。
+`src/data/questions.json` 由 `20260625全部題庫.pdf` 解析而來，該 PDF 來源為行政院公共工程委員會「政府電子採購網」公開題庫查詢系統
+（<https://web.pcc.gov.tw/psms/plrtqdm/questionPublic/indexReadQuestion>），屬官方公開題庫，非商業付費題庫。
 
-若要在本機產生 `questions.json`：
+若要重新產生 `questions.json`（例如題庫更新後）：
 
-1. 準備一份題庫 PDF（格式需符合 `scripts/parse_pdf.py` 開頭註解所述的表格結構）。
-2. 修改 `scripts/parse_pdf.py` 內的 `PDF_PATH` 指向你的 PDF 檔案位置。
+1. 到上述網站下載最新版題庫 PDF，放到專案上層目錄。
+2. 修改 `scripts/parse_pdf.py` 內的 `PDF_PATH` 指向該 PDF 檔案位置。
 3. 安裝 Python 相依套件：`pip install pdfminer.six`
 4. 執行：
    ```
@@ -24,5 +25,3 @@
 npm install
 npm run dev
 ```
-
-需要先產生 `questions.json`，否則首頁分類清單會是空的。
